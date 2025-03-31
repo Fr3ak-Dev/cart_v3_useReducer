@@ -1,10 +1,10 @@
-import { ActionDispatch } from 'react';
+import { Dispatch } from 'react';
 import type { Phone } from '../types'
 import { CartActions } from '../reducers/cart-reducer';
 
 type PhoneProps = {
     phone: Phone;
-    dispatch: ActionDispatch<[action: CartActions]>
+    dispatch: Dispatch<CartActions>;
 }
 
 export default function Phone({ phone, dispatch }: PhoneProps) {

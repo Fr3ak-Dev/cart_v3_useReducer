@@ -8,7 +8,6 @@ import { cartReducer, initialState } from "./reducers/cart-reducer"
 function App() {
 
   const {
-    data,
     cart,
     addToCart,
     removeFromCart,
@@ -37,7 +36,7 @@ function App() {
 
         <div className="row mt-5">
           {
-            data.map((phone) => (
+            state.data.map((phone) => (
               <Phone
                 key={phone.id}
                 phone={phone}

@@ -1,7 +1,9 @@
+import { useReducer } from "react"
 import Header from "./components/Header"
 import Phone from "./components/Phone"
 
 import { useCart } from "./hooks/useCart"
+import { cartReducer, initialState } from "./reducers/cart-reducer"
 
 function App() {
 
@@ -16,6 +18,8 @@ function App() {
     isEmpty,
     totalPrice
   } = useCart()
+
+  const [state, dispatch] = useReducer(cartReducer, initialState)
 
   return (
     <>

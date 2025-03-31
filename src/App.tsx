@@ -9,7 +9,6 @@ function App() {
 
   const {
     cart,
-    addToCart,
     removeFromCart,
     decreaseQuantity,
     increaseQuantity,
@@ -40,7 +39,8 @@ function App() {
               <Phone
                 key={phone.id}
                 phone={phone}
-                addToCart={addToCart} />
+                dispatch={dispatch}
+              />
             ))
           }
 

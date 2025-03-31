@@ -1,11 +1,13 @@
+import { ActionDispatch } from 'react';
 import type { Phone } from '../types'
+import { CartActions } from '../reducers/cart-reducer';
 
 type PhoneProps = {
     phone: Phone;
-    addToCart: (item: Phone) => void;
+    dispatch: ActionDispatch<[action: CartActions]>
 }
 
-export default function Phone({ phone, addToCart }: PhoneProps) {
+export default function Phone({ phone, dispatch }: PhoneProps) {
 
     const { name, description, price, image } = phone
 
@@ -21,7 +23,7 @@ export default function Phone({ phone, addToCart }: PhoneProps) {
                 <button
                     type="button"
                     className="btn btn-dark w-100"
-                    onClick={() => addToCart(phone)}>
+                    onClick={() => dispatch({ type: 'add-to-cart', payload: { item: phone } })}>
                     Agregar al Carrito
                 </button>
             </div>

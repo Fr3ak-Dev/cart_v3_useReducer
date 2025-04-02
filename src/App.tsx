@@ -9,7 +9,6 @@ function App() {
 
   const {
     decreaseQuantity,
-    increaseQuantity,
     clearCart
   } = useCart()
 
@@ -21,7 +20,6 @@ function App() {
         cart={state.cart}
         dispatch={dispatch}
         decreaseQuantity={decreaseQuantity}
-        increaseQuantity={increaseQuantity}
         clearCart={clearCart}
       />
       <main className="container-xl mt-5">

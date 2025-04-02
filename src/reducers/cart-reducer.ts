@@ -6,7 +6,7 @@ export type CartActions =
     { type: 'remove-from-cart'; payload: { id: Phone['id'] } } |
     { type: 'decrease-from-cart'; payload: { id: Phone['id'] } } |
     { type: 'increase-from-cart'; payload: { id: Phone['id'] } } |
-    { type: 'clearCart' }
+    { type: 'clearCart' };
 
 export type CartState = {
     data: Phone[]
@@ -29,7 +29,7 @@ export const cartReducer = (
     // Defining actions
     if (action.type === 'add-to-cart') {
         const itemExists = state.cart.find(phoneTemp => phoneTemp.id === action.payload.item.id)
-        let updatedCart : PhoneItem[] = []
+        let updatedCart: PhoneItem[] = []
         if (itemExists) { // exist in cart
             updatedCart = state.cart.map(item => {
                 if (item.id === action.payload.item.id) {
@@ -53,8 +53,10 @@ export const cartReducer = (
     }
 
     if (action.type === 'remove-from-cart') {
+        const cart = state.cart.filter(item => item.id !== action.payload.id);
         return {
-            ...state
+            ...state,
+            cart
         }
     }
 

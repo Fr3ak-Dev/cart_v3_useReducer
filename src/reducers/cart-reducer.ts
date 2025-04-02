@@ -13,10 +13,15 @@ export type CartState = {
     cart: PhoneItem[]
 }
 
+const initialCart = () : PhoneItem[]  => {
+    const localStorageCart = localStorage.getItem('cart')
+    return localStorageCart ? JSON.parse(localStorageCart) : []
+}
+
 // This is defined when using the useReducer
 export const initialState: CartState = {
     data: db,
-    cart: []
+    cart: initialCart()
 }
 
 const MIN_ITEMS = 1
